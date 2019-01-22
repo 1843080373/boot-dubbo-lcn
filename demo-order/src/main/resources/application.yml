@@ -1,0 +1,28 @@
+mybatis:
+  mapperLocations: classpath*:mappers/*.xml
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    password: 123456
+    url: jdbc:mysql://localhost:3306/tx_mq?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8
+    username: root
+  messages:
+    basename: i18n/Messages,i18n/Pages
+  jms:
+    pub-sub-domain: false   # 配置消息的类型，如果是true则表示为topic消息，如果为false表示Queue消息
+  activemq:
+    user: admin    # 连接用户名
+    password: admin   # 连接密码
+    broker-url: tcp://127.0.0.1:61616 # 消息组件的连接主机信息
+  dubbo: 
+    application: 
+      name: demo-order
+    registry: 
+      address: zookeeper://127.0.0.1:2181
+    protocol: 
+      name: dubbo
+      port: 20880
+    scan: com.mq.tx
+server:
+  port: 81
+  
