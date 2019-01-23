@@ -2,6 +2,7 @@ package com.mq.tx.ws;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.alibaba.dubbo.config.annotation.Service;
 import com.boot.api.ProductWSService;
@@ -18,6 +19,7 @@ public class ProductWSServiceImpl implements ProductWSService {
 		Product p=new Product();
 		BeanUtils.copyProperties(productRequest, p);
 		productMapper.insert(p);
+		System.out.println(1/0);
 		return productRequest;
 	}
 

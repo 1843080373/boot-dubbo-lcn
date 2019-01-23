@@ -1,29 +1,20 @@
 package com.mq.tx.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.alibaba.dubbo.config.annotation.Reference;
-import com.boot.api.ProductWSService;
-import com.boot.api.UserWSService;
-import com.boot.request.ProductRequest;
-import com.boot.request.User;
+import com.mq.tx.entity.Order;
+import com.mq.tx.service.OrderLocalService;
 
 @RestController
 public class OrderController {
-	@Reference
-	private UserWSService userService;
-	@Reference
-	private ProductWSService productWSService;
-
-	@RequestMapping("/test")
-	public User test() {
-		return userService.saveUser(new User());
-
-	}
 	
-	@RequestMapping("/product/insert")
-	public ProductRequest product(ProductRequest productRequest) {
-		return productWSService.save(productRequest);
+	@Autowired
+	private OrderLocalService orderLocalService;
+
+	@RequestMapping("/order/insert")
+	public Order order(Order order) {
+		return orderLocalService.save(order);
 	}
 }
