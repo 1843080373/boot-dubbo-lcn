@@ -4,7 +4,7 @@ server:
 spring:
     datasource:
         name: test
-        url: jdbc:mysql://192.168.0.76:3306/tk_mysql?useUnicode=true&characterEncoding=utf8
+        url: jdbc:mysql://127.0.0.1:3306/tk_mysql?useUnicode=true&characterEncoding=utf8
         username: root
         password: 123456
                            # 使用druid数据源
@@ -23,16 +23,3 @@ spring:
         testOnReturn: false
         poolPreparedStatements: true
         maxOpenPreparedStatements: 20
-    mvc:
-      view:
-        suffix: .jsp
-        prefix: /WEB-INF/jsp/
-      thymeleaf:
-        cache: false
-        enabled: false
-    resources:
-      static-locations: classpath:/WEB-INF/resources
-    http:
-      multipart:
-        max-file-size: 100Mb
-        max-request-size: 100Mb

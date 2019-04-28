@@ -23,7 +23,7 @@ public class UserServiceImpl implements UserService {
 	public void insert(User record) {
 		httpClient.get("http://127.0.0.1:8090/add?name=aaa");
 		userMapper.insert(record);
-		System.out.println(1/0);
+		//System.out.println(1/0);
 	}
 
 	@Override
