@@ -1,5 +1,0 @@
-server:
-  port: 7070
-lcn:
-  manager:
-    port: 9090
